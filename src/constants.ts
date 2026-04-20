@@ -2,7 +2,6 @@ import type { Props } from "astro";
 import IconMail from "@/assets/icons/IconMail.svg";
 import IconGitHub from "@/assets/icons/IconGitHub.svg";
 import IconBrandX from "@/assets/icons/IconBrandX.svg";
-import IconLinkedin from "@/assets/icons/IconLinkedin.svg";
 import IconWhatsapp from "@/assets/icons/IconWhatsapp.svg";
 import IconFacebook from "@/assets/icons/IconFacebook.svg";
 import IconTelegram from "@/assets/icons/IconTelegram.svg";
@@ -20,25 +19,25 @@ export const SOCIALS: Social[] = [
   {
     name: "GitHub",
     href: "https://github.com/eveiljuice",
-    linkTitle: `${SITE.title} в GitHub`,
+    linkTitle: `${SITE.title} on GitHub`,
     icon: IconGitHub,
   },
   {
     name: "Telegram",
     href: "https://t.me/promptdie",
-    linkTitle: `${SITE.title} в Telegram`,
+    linkTitle: `${SITE.title} on Telegram`,
     icon: IconTelegram,
   },
   {
     name: "X",
     href: "https://x.com/Timo1153",
-    linkTitle: `${SITE.title} в X`,
+    linkTitle: `${SITE.title} on X`,
     icon: IconBrandX,
   },
   {
     name: "Mail",
     href: "mailto:doorto338@gmail.com",
-    linkTitle: `Написать ${SITE.title}`,
+    linkTitle: `Email ${SITE.title}`,
     icon: IconMail,
   },
 ] as const;

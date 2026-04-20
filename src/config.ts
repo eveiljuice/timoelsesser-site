@@ -2,7 +2,7 @@ export const SITE = {
   website: "https://timoelsesser.com/",
   author: "Timo Elsesser",
   profile: "https://timoelsesser.com/",
-  desc: "Персональный сайт Timo Elsesser — AI Enthusiast. Проекты, заметки и контакты.",
+  desc: "Personal site of Timo Elsesser — AI Enthusiast. Projects, notes and contacts.",
   title: "Timo Elsesser",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
@@ -13,11 +13,11 @@ export const SITE = {
   showBackButton: true,
   editPost: {
     enabled: false,
-    text: "Редактировать",
+    text: "Edit",
     url: "",
   },
   dynamicOgImage: true,
   dir: "ltr",
-  lang: "ru",
+  lang: "en",
   timezone: "Europe/Moscow",
 } as const;

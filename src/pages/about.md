@@ -1,8 +1,9 @@
 ---
 layout: ../layouts/AboutLayout.astro
-title: "Обо мне"
+title: "About"
 ---
 
-Привет! Меня зовут **Timo Elsesser** — AI Enthusiast.
+Hi. I'm **Timo Elsesser** — AI Enthusiast.
 
-На этом сайте я собираю свои проекты, эксперименты и заметки. Если хотите связаться — в шапке и футере есть ссылки на GitHub, Telegram, X и почту.
+I build with AI, write about it, and collect the experiments here.
+Find links to GitHub, Telegram, X and email in the header and footer.

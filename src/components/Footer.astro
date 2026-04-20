@@ -17,16 +17,18 @@ const { noMarginTop = false, class: className, ...attrs } = Astro.props;
 >
   <div
     class:list={[
-      "py-6 sm:py-4",
+      "py-6 sm:py-5",
       "border-t border-border",
-      "flex flex-col items-center justify-between sm:flex-row-reverse",
+      "flex flex-col items-center gap-3 sm:flex-row-reverse sm:justify-between",
     ]}
   >
     <Socials />
-    <div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row">
-      <span>&#169; {currentYear} Timo Elsesser</span>
-      <span class="hidden sm:inline">&nbsp;|&nbsp;</span>
-      <span>Все права защищены.</span>
+    <div
+      class="flex flex-col items-center gap-x-2 gap-y-1 text-xs tracking-[0.15em] text-foreground/55 uppercase sm:flex-row"
+    >
+      <span>&copy; {currentYear} Timo Elsesser</span>
+      <span aria-hidden="true" class="hidden text-border sm:inline">//</span>
+      <span>built in the terminal</span>
     </div>
   </div>
 </footer>

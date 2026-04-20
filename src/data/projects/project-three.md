@@ -1,10 +1,10 @@
 ---
-title: "Проект три"
-description: "Описание третьего проекта. Замените на реальный текст — что сделано, какие технологии, где посмотреть."
+title: "Project three"
+description: "Description of the third project — what was built, the stack, where to try it."
 url: "https://example.com"
 tech: ["Go", "Docker"]
 featured: true
 order: 3
 ---
 
-Подробности проекта можно описать в этом файле.
+Details live here.

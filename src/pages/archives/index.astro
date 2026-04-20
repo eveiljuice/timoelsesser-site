@@ -16,24 +16,24 @@ if (!SITE.showArchives) {
 const posts = await getCollection("blog", ({ data }) => !data.draft);
 
 const months = [
-  "Январь",
-  "Февраль",
-  "Март",
-  "Апрель",
-  "Май",
-  "Июнь",
-  "Июль",
-  "Август",
-  "Сентябрь",
-  "Октябрь",
-  "Ноябрь",
-  "Декабрь",
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
 ];
 ---
 
-<Layout title={`Архив | ${SITE.title}`}>
+<Layout title={`Archive | ${SITE.title}`}>
   <Header />
-  <Main pageTitle="Архив" pageDesc="Архив постов по датам.">
+  <Main pageTitle="Archive" pageDesc="Posts grouped by date.">
     {
       Object.entries(
         getPostsByGroupCondition(posts, post =>

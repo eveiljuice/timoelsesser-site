@@ -40,16 +40,16 @@ const { title, description, url, repo, tech } = project.data;
       )
     }
 
-    <div class="mt-4 flex flex-wrap gap-4 text-sm">
+    <div class="mt-6 flex flex-wrap gap-5 text-sm">
       {
         url && (
           <a
             href={url}
             target="_blank"
             rel="noopener noreferrer"
-            class="text-accent underline decoration-dashed underline-offset-4 hover:opacity-80"
+            class="bracket-link tracking-wider uppercase"
           >
-            Открыть проект →
+            live demo
           </a>
         )
       }
@@ -59,9 +59,9 @@ const { title, description, url, repo, tech } = project.data;
             href={repo}
             target="_blank"
             rel="noopener noreferrer"
-            class="text-accent underline decoration-dashed underline-offset-4 hover:opacity-80"
+            class="bracket-link tracking-wider uppercase"
           >
-            Исходный код →
+            source
           </a>
         )
       }

@@ -1,6 +1,6 @@
 ---
-title: "Проект один"
-description: "Короткое описание проекта. Замените текст на реальный — название, суть, роль, результат."
+title: "Project one"
+description: "Short description. Replace with the real pitch — name, purpose, my role, outcome."
 url: "https://example.com"
 repo: "https://github.com/eveiljuice"
 tech: ["Python", "AI"]
@@ -8,4 +8,4 @@ featured: true
 order: 1
 ---
 
-Подробное описание проекта можно писать прямо здесь в markdown. Это содержимое показывается на отдельной странице проекта `/projects/project-one`.
+Long-form write-up lives here in Markdown. This content is shown on the dedicated project page at `/projects/project-one`.

@@ -1,10 +1,10 @@
 ---
-title: "Проект два"
-description: "Замените на реальное описание второго проекта. Одно-два предложения о том, что он делает и зачем."
+title: "Project two"
+description: "Replace with the real pitch for the second project — one or two sentences on what it does and why."
 repo: "https://github.com/eveiljuice"
 tech: ["TypeScript", "Astro"]
 featured: true
 order: 2
 ---
 
-Подробное описание проекта пишется здесь.
+Long-form write-up lives here.

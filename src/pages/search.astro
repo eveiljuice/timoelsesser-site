@@ -9,9 +9,9 @@ import { SITE } from "@/config";
 const backUrl = SITE.showBackButton ? `${Astro.url.pathname}` : "/";
 ---
 
-<Layout title={`Поиск | ${SITE.title}`}>
+<Layout title={`Search | ${SITE.title}`}>
   <Header />
-  <Main pageTitle="Поиск" pageDesc="Поиск по сайту...">
+  <Main pageTitle="Search" pageDesc="Search across the site...">
     <div id="pagefind-search" transition:persist data-backurl={backUrl}></div>
   </Main>
   <Footer />
