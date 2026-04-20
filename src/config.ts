@@ -1,0 +1,23 @@
+export const SITE = {
+  website: "https://timoelsesser.com/",
+  author: "Timo Elsesser",
+  profile: "https://timoelsesser.com/",
+  desc: "Персональный сайт Timo Elsesser — AI Enthusiast. Проекты, заметки и контакты.",
+  title: "Timo Elsesser",
+  ogImage: "astropaper-og.jpg",
+  lightAndDarkMode: true,
+  postPerIndex: 4,
+  postPerPage: 4,
+  scheduledPostMargin: 15 * 60 * 1000,
+  showArchives: true,
+  showBackButton: true,
+  editPost: {
+    enabled: false,
+    text: "Редактировать",
+    url: "",
+  },
+  dynamicOgImage: true,
+  dir: "ltr",
+  lang: "ru",
+  timezone: "Europe/Moscow",
+} as const;

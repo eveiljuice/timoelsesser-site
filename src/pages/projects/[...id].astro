@@ -1,0 +1,75 @@
+---
+import { type CollectionEntry, getCollection, render } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import BackButton from "@/components/BackButton.astro";
+import { SITE } from "@/config";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects", ({ data }) => !data.draft);
+  return projects.map(project => ({
+    params: { id: project.id },
+    props: { project },
+  }));
+}
+
+type Props = { project: CollectionEntry<"projects"> };
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const { title, description, url, repo, tech } = project.data;
+---
+
+<Layout title={`${title} | ${SITE.title}`} description={description}>
+  <Header />
+  <BackButton />
+  <main id="main-content" class="app-layout pb-12">
+    <h1 class="mt-4 text-2xl font-bold text-accent sm:text-3xl">{title}</h1>
+    <p class="mt-2 text-foreground/85">{description}</p>
+
+    {
+      tech.length > 0 && (
+        <ul class="mt-4 flex flex-wrap gap-2">
+          {tech.map(t => (
+            <li class="rounded border border-border px-2 py-0.5 text-xs text-foreground/75">
+              {t}
+            </li>
+          ))}
+        </ul>
+      )
+    }
+
+    <div class="mt-4 flex flex-wrap gap-4 text-sm">
+      {
+        url && (
+          <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-accent underline decoration-dashed underline-offset-4 hover:opacity-80"
+          >
+            Открыть проект →
+          </a>
+        )
+      }
+      {
+        repo && (
+          <a
+            href={repo}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-accent underline decoration-dashed underline-offset-4 hover:opacity-80"
+          >
+            Исходный код →
+          </a>
+        )
+      }
+    </div>
+
+    <article class="app-prose mt-8 w-full max-w-app">
+      <Content />
+    </article>
+  </main>
+  <Footer />
+</Layout>

@@ -1,0 +1,130 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Socials from "@/components/Socials.astro";
+import LinkButton from "@/components/LinkButton.astro";
+import Card from "@/components/Card.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+import getSortedPosts from "@/utils/getSortedPosts";
+import IconRss from "@/assets/icons/IconRss.svg";
+import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
+import { SITE } from "@/config";
+import { SOCIALS } from "@/constants";
+
+const posts = await getCollection("blog");
+const sortedPosts = getSortedPosts(posts);
+const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
+
+const projects = await getCollection("projects", ({ data }) => !data.draft);
+const featuredProjects = projects
+  .filter(p => p.data.featured)
+  .sort((a, b) => a.data.order - b.data.order);
+---
+
+<Layout>
+  <Header />
+  <main id="main-content" data-layout="index" class="app-layout">
+    <section id="hero" class:list={["pt-8 pb-6", "border-b border-border"]}>
+      <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl">
+        Timo Elsesser
+      </h1>
+      <a
+        target="_blank"
+        href="/rss.xml"
+        class="inline-block"
+        aria-label="RSS-лента"
+        title="RSS"
+      >
+        <IconRss
+          width={20}
+          height={20}
+          class="scale-125 stroke-accent stroke-3 rtl:-rotate-90"
+        />
+        <span class="sr-only">RSS</span>
+      </a>
+
+      <p class="text-lg">AI Enthusiast.</p>
+      <p class="mt-2">
+        Здесь я собираю свои проекты и заметки. Загляните в раздел
+        <LinkButton
+          class="underline decoration-dashed underline-offset-4 hover:text-accent"
+          href="/projects">Проекты</LinkButton
+        > или читайте <LinkButton
+          class="underline decoration-dashed underline-offset-4 hover:text-accent"
+          href="/posts">блог</LinkButton
+        >.
+      </p>
+      {
+        SOCIALS.length > 0 && (
+          <div class="mt-4 flex max-sm:flex-col sm:items-center">
+            <div class="me-2 mb-1 whitespace-nowrap sm:mb-0">Контакты:</div>
+            <Socials />
+          </div>
+        )
+      }
+    </section>
+
+    {
+      featuredProjects.length > 0 && (
+        <section
+          id="projects"
+          class:list={[
+            "pt-12 pb-6",
+            { "border-b border-border": recentPosts.length > 0 },
+          ]}
+        >
+          <h2 class="text-2xl font-semibold tracking-wide">Проекты</h2>
+          <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {featuredProjects.map(project => (
+              <ProjectCard project={project} />
+            ))}
+          </div>
+          <div class="mt-6 text-end">
+            <LinkButton href="/projects/">
+              Все проекты
+              <IconArrowRight class="inline-block rtl:-rotate-180" />
+            </LinkButton>
+          </div>
+        </section>
+      )
+    }
+
+    {
+      recentPosts.length > 0 && (
+        <section id="recent-posts" class="pt-12 pb-6">
+          <h2 class="text-2xl font-semibold tracking-wide">Последние посты</h2>
+          <ul>
+            {recentPosts.map(
+              (data, index) =>
+                index < SITE.postPerIndex && <Card variant="h3" {...data} />
+            )}
+          </ul>
+        </section>
+      )
+    }
+
+    {
+      recentPosts.length > 0 && (
+        <div class="my-8 text-center">
+          <LinkButton href="/posts/">
+            Все посты
+            <IconArrowRight class="inline-block rtl:-rotate-180" />
+          </LinkButton>
+        </div>
+      )
+    }
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const indexLayout = (document.querySelector("#main-content") as HTMLElement)
+      ?.dataset?.layout;
+    if (indexLayout) {
+      sessionStorage.setItem("backUrl", "/");
+    }
+  });
+</script>
